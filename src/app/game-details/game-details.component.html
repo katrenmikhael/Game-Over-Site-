@@ -1,0 +1,60 @@
+<section class="details-sec bg-main min-vh-100">
+  <div class="container mt-5 pt-5">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="img-container w-100 position-relative" (mouseenter) ="showVideo()" (mouseleave) ="hideVideo()">
+          <img [src]="details?.thumbnail" class="w-100 h-100" alt="game-img">
+          <video [src]="videopath" loop class="position-absolute d-none video-game" controls autoplay ></video>
+        </div>
+        <div class="btns d-flex justify-content-between mt-3">
+          <button class="btn bg-secondary p-1 w-25 fs-5">Free</button>
+          <a class="btn btn-primary w-50 fs-5" [href]="details?.game_url">Play Now <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+        </div>
+      </div>
+      <div class="col-md-8
+      ">
+        <h2 class="text-secondary fw-bolder">{{details?.title}}</h2>
+        <h4 class="text-secondary">about {{details?.title}}</h4>
+        <p class="text-secondary">{{details?.description}}</p>
+        <h4 class="text-secondary mb-2">{{details?.title}} screenshots</h4>
+
+        <div id="carouselExampleSlidesOnly" data-interval="1" class="carousel slide mb-4" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active" *ngFor="let img of details?.screenshots">
+              <img [src]="img.image" class="d-block w-100" alt="game-screen">
+            </div>
+
+          </div>
+        </div>
+        <h4 class="text-secondary mb-2">Additional information</h4>
+        <div class="row mt-3 mb-2">
+          <div class="col-md-4 text-secondary">
+            <h6>Title</h6>
+            <span>{{details?.title}}</span>
+          </div>
+          <div class="col-md-4 text-secondary">
+            <h6>Developer</h6>
+            <span>{{details?.developer}}</span>
+          </div>
+          <div class="col-md-4 text-secondary">
+            <h6>Publisher</h6>
+            <span>{{details?.publisher}}</span>
+          </div>
+          <div class="col-md-4 text-secondary mt-3">
+            <h6>Release Date</h6>
+            <span>{{details?.release_date}}</span>
+          </div>
+          <div class="col-md-4 text-secondary mt-3">
+            <h6>Genre</h6>
+            <span>{{details?.genre}}</span>
+          </div>
+
+          <div class="col-md-4 text-secondary mt-3">
+            <h6>Platform</h6>
+            <span>{{details?.platform}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

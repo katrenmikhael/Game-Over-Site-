@@ -1,0 +1,55 @@
+<section class="login-form vh-100 d-flex justify-content-center align-items-center bg-main">
+  <div class="container p-0 shadow-lg bg-main">
+    <div class="row g-0 p-0">
+      <div class="img-login col-md-6 g-0 p-0 m-0">
+        <img src="../../assets/form_Img.jpg" class="w-100 h-100" alt="form-img">
+      </div>
+      <div class="form col-md-6 g-0 p-2 m-0 text-center">
+        <div class="logo-img mt-2">
+          <img src="../../assets/logo.png" class="logo" alt="logo">
+        </div>
+        <h3 class="main-text text-secondary mb-4">Login in to GameOver</h3>
+        <form [formGroup]="loginForm" (ngSubmit)="handleLogin(loginForm)">
+
+
+         <div class="email-control mb-4">
+          <input type="email" formControlName="email"  placeholder="Email Address" class="form-control bg-dark border-0  text-light">
+          <div class="alert alert-danger p-0" *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched">
+            <ul>
+              <li *ngIf="loginForm.get('email')?.getError('required')">email is required</li>
+              <li *ngIf="loginForm.get('email')?.getError('email')">this is invalid email format </li>
+            </ul>
+          </div>
+         </div>
+
+          <div class="password-control mb-4">
+            <input type="password" placeholder="Password" formControlName="password"  class="form-control bg-dark border-0 text-light">
+            <div class="alert alert-danger p-0 m-0" *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched">
+              <ul>
+                <li *ngIf="loginForm.get('password')?.getError('required')">password is required</li>
+                <li *ngIf="loginForm.get('password')?.getError('pattern')">this is invalid password </li>
+              </ul>
+            </div>
+          </div>
+          <div class="alert alert-danger p-0 m-0" *ngIf="errorMessage">
+            {{errorMessage}}
+          </div>
+          <button class="btn login-form border-4 border-dark text-white w-100 mt-3 " type="submit">
+
+              <span *ngIf="!isLogin" >Login</span>
+            <i *ngIf="isLogin" class="fa-solid fa-spinner fa-spin"></i>
+          </button>
+        </form>
+        <div class="line bg-secondary w-100 mt-3">
+
+        </div>
+
+       <div class="line-containter px-4 mt-3 mb-3">
+
+       </div>
+       <span class=" login-link text-light d-block"><a routerLink="">Forgot Password?</a></span>
+       <span class=" login-link text-light">Not a member yet? <a routerLink="/register" class="">Create Account></a></span>
+      </div>
+    </div>
+  </div>
+</section>

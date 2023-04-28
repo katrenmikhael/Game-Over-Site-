@@ -1,0 +1,13 @@
+.game-container {
+  background: #32383e;
+  transition: transform 0.5s;
+  border-radius: 5px;
+}
+.game-container:hover {
+  transform: scale(1.04);
+}
+
+.game-container a {
+  text-decoration: none;
+  color: black;
+}

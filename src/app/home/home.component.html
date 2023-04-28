@@ -1,0 +1,41 @@
+<section class="bg-main min-vh-100">
+  <div class="banner-home">
+    <div class="layer h-100 w-100 d-flex justify-content-center align-items-center">
+      <div class="banner-text text-center">
+      <h1 class="text-secondary mb-2">Find & track the best <span class="h1 second-color">
+        free-to-play
+      </span> games!</h1>
+      <span class="text-secondary ">Track what you've played and search for what to play next! Plus get free premium loot!</span>
+      <div class="borwse-btn mt-2">
+        <button class="btn btn-outline-secondary">Browse Games</button>
+      </div>
+    </div>
+    </div>
+
+  </div>
+
+
+  <div class="container">
+    <div class="games-title text-secondary mt-4">
+      <h3>
+        <i class="fa-solid fa-robot"></i>
+        Personalized Recommendations
+      </h3>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-4" *ngFor="let game of firstThreeGames">
+        <a [routerLink]="['/gameDetails',game.id]">
+          <div class="game-container">
+            <div class="img-container">
+              <img src="{{game?.thumbnail}}" class="w-100 h-100" alt="game-poster">
+            </div>
+            <div class="text-container d-flex justify-content-between mt-3 p-3">
+              <span class="text-secondary h4 fw-bolder">{{game?.title}}</span>
+              <button class="btn btn-primary px-3"> free</button>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

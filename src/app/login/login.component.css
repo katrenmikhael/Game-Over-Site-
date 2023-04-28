@@ -1,0 +1,15 @@
+.form,
+.login-form {
+  background: #32383e;
+}
+.line {
+  height: 1px;
+}
+.login-link a {
+  text-decoration: none;
+}
+
+.logo-img img {
+  width: 100px;
+  height: 80px;
+}

@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top bg-main shadow-lg ">
+  <div class="container d-flex align-items-center">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home" >
+      <img src="../../assets/logo.png" class="" alt="logo-img">
+      <span class="text-white">Game Over</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-5 mb-2 mb-lg-0 ">
+        <li class="nav-item">
+          <a class="nav-link active text-white" *ngIf="this._AuthService.isLogin()"  routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-secondary" *ngIf="this._AuthService.isLogin()" routerLink="/allGames">All</a>
+        </li>
+        <li class="nav-item dropdown" *ngIf="this._AuthService.isLogin()" >
+          <span class="nav-link dropdown-toggle text-secondary" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Platforms
+          </span>
+          <ul class="dropdown-menu" id="selectPlatform" >
+            <li><a class="dropdown-item" [routerLink]="['/gamesByPlatform','pc']">PC</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/gamesByPlatform','browser']">Browser</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown" *ngIf="this._AuthService.isLogin()">
+          <a class="nav-link dropdown-toggle text-secondary" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           sort-by
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" [routerLink]="['/gamesSortBy','release-date']">release date</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/gamesSortBy','popularity']">Pupularity</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/gamesSortBy','alphabetical']">Alphabetical</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/gamesSortBy','relevance']">Relevance</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown" *ngIf="this._AuthService.isLogin()">
+          <a class="nav-link dropdown-toggle text-secondary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           categories
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" [routerLink]="['/gamesByCategory','racing']">racing</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/gamesByCategory','sports']">sports</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/gamesByCategory','social']">social</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/gamesByCategory','shooter']">shooter</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/gamesByCategory','open-world']">open-world</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/gamesByCategory','zombie']">zombie</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/gamesByCategory','fantasy']">fantasy</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/gamesByCategory','action-rpg']">action-rpg</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/gamesByCategory','action']">action</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/gamesByCategory','flight']">flight</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/gamesByCategory','battle-royale']">battle-royale</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex ms-auto" role="search">
+
+        <a class="btn btn-outline-primary me-2" *ngIf="!this._AuthService.isLogin()" routerLink="/login">Login</a>
+        <button class="btn btn-outline-primary me-2" *ngIf="!this._AuthService.isLogin()" routerLink="/register">Join Free</button>
+        <span class="btn btn-outline-primary me-2" (click)="logOut()" *ngIf="this._AuthService.isLogin()">logout</span>
+      </form>
+    </div>
+  </div>
+</nav>

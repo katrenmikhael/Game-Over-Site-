@@ -1,0 +1,10 @@
+.form,
+.register-form {
+  background: #32383e;
+}
+.line {
+  height: 1px;
+}
+.login-link a {
+  text-decoration: none;
+}

@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Xanh+Mono:ital@0;1&display=swap");
+:root {
+  --main-bg-color: #272b30;
+  --main-text-color: #32383c;
+  --second-text-color: #48a6f6;
+}
+span,
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Indie Flower";
+  font-family: "Xanh Mono";
+}
+
+.bg-main {
+  background-color: var(--main-bg-color);
+}
+
+.main-text {
+  color: var(--main-text-color);
+}
+
+.second-color {
+  color: var(--second-text-color);
+}
